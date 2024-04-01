@@ -1,0 +1,5 @@
+app/storage/sessions/*
+app/config/*
+node_modules/
+package-lock.json
+assets/js/config.js
