@@ -8,7 +8,7 @@ trait commons{
      */
     public function hydrater(array $data) {
         foreach ($data as $column => $value) {
-            $this->columnValue(strtoupper($column), $value);
+            $this->columnValue($column, $value);
         }
     }
 }

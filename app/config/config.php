@@ -13,7 +13,7 @@ setConfig([
     // "frontend_url" => "https://tplan.multipresta.com/front/",
 
     "frontend_url" => "http://127.0.0.1:5501/frontend/",
-    "base_url" => "http://127.0.0.1/wed/",
+    "base_url" => "http://localhost/interUrban_backend/",
 
     // "app_name" => "sail-php",
 
@@ -23,7 +23,7 @@ setConfig([
         "host" => "localhost",
 
         "pass" => "",
-        "dbname" => "tableplan",
+        "dbname" => "bustickets",
         "user" => "root",
 
         // "user" => "john007_wedbackend",
