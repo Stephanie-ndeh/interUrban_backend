@@ -9,6 +9,7 @@ class users extends primaryApi
 	protected $users_model;
 	protected $vUsers;
 	protected $vUsersUp;
+	protected $vUsersConnect;
 	public function __construct()
 	{
 		$this->model(
@@ -18,6 +19,7 @@ class users extends primaryApi
 		$this->base_model->setDb($this->getDb());
 		$this->validation('vUsers');
 		$this->validation('vUsersUp');
+		$this->validation('vUsersConnect');
 	}
 	public function get()
 	{
@@ -45,7 +47,23 @@ class users extends primaryApi
 			$boolReturn
 		);
 	}
-	public function delete(){
+	public function delete()
+	{
 		return $this->deleteItems('base_model');
+	}
+	public function connect()
+	{
+		if ($this->vUsersConnect->run()) {
+			# code...
+			$this->base_model->hydrater($_POST);
+			$userInfos = $this->base_model->connect();
+			if (empty($userInfos)) {
+				# code...
+				return $this->responseJson([],'wrong username or password');
+			}
+			return $this->responseJson($this->base_model->connect());
+		}
+		return $this->responseJson([],getErrors(null,true));
+
 	}
 }
